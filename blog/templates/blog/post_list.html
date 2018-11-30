@@ -1,14 +1,36 @@
-<html>
-	<head>
-		<title>Django Girls Blog</title>
-	</head>
+{% extends 'blog/base.html' %}
 
-	<body>
-		<div>
-			<h1><a href="">Django Girls Blog</a></h1>
+{% block content %}
+	{% for post in posts %}
+		<div class="post">
+			<div class="date">
+				{{ post.published_date }}
+			</div>
+			<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+				<p>{{ post.text|linebreaksbr }}</p>
+				<br>
+				<p><i>source: https://wicca.com/celtic/wicca/wicca.htm</i></p>
 		</div>
+	{% endfor %}
+{% endblock %}
 
-		<div>
+
+
+
+
+
+
+
+			<!--{% for post in posts %}
+				<div class="post">
+					<p>published: {{ post.published_date }}</p>
+					<h1><a href="">{{ post.title }}</a></h1>
+					<p>{{ post.text|linebreaksbr }}</p>
+
+				</div>			
+			{% endfor %}
+
+
 			<h2><a href="">My First Post</a></h2>
 			<p>Wicca is a deep appreciation and awe in watching the sunrise or sunset, the forest in the light of a glowing moon, a meadow enchanted by the first light of day.   It is the morning dew on the petals of a beautiful flower, the gentle caress of a warm summer breeze upon your skin, or the warmth of the summer sun on your face.   Wicca is the fall of colorful autumn leaves, and the softness of winter snow.   It is light, and shadow and all that lies in between.  It is the song of the birds and other creatures of the wild.   It is being in the presence of Mother Earths nature and being humbled in reverence.   When we are in the temple of the Lord and Lady, we are not prone to the arrogance of human technology as they touch our souls.   To be a Witch is to be a healer, a teacher, a seeker, a giver, and a protector of all things.   If this path is yours, may you walk it with honor, light and integrity.</p>
 			<p>published: 26.Nov.2018, 15:50</p>
@@ -17,7 +39,6 @@
 		<div>
 			<h2><a href="">My Second Post</a></h2>
 			<p>Wiccans, Pagans and Witches see the Goddess and God as aspects of the One.  Our ability to comprehend the universe and the world around us is limited, and viewing the Divine as masculine and feminine aspects of the One Universal power helps us understand this energy a little better. We accept that different aspects of the Divine combine to make the whole or One. This allows individuals or groups to attune with nature and the creative force in a way they are most comfortable with. Some call upon the Divine by different names, but this does not mean we see a total seperation of deities. The following is an explanation of this concept of deities which most agree upon.</p>
-			<p>published: 26.Nov.2018, 15:50</p>
-		</div>
+			<p>published: 26.Nov.2018, 15:50</p>-->
 	</body>
 </html>
